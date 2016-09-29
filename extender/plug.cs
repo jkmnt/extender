@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -56,9 +57,11 @@ namespace Extender
             }
 
             ToolStrip ts = new ToolStrip();
-            ToolStripItem ti = ts.Items.Add("--/");
+            ts.Tag = "modify";
+
+            ToolStripItem ti = ts.Items.Add(null, Properties.Resources.toolbar_icon, popup_handler);
             ti.ToolTipText = "Extender";
-            ti.Click += popup_handler;
+            
             // since controls layed in the reverse order, attach new toolstrip to the right edgde of the rightmost existing toolstrip.
             // extra dirty, but ... ok
             tsp.Join(ts, tsp.Controls[0].Right, 0);
