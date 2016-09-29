@@ -79,7 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Extender_icon.png" />
-    <None Include="Resources\toolbar_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
