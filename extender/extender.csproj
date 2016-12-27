@@ -17,6 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\cb098\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <cbpath>D:\winp\app\cambam</cbpath>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
@@ -27,6 +28,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\cb10\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <cbpath>D:\winp\app\cambam10</cbpath>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -34,32 +36,14 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CamBam" Condition="'$(Configuration)' == 'cb098-debug'">
-      <HintPath>D:\winp\app\cambam\CamBam.exe</HintPath>
+    <Reference Include="CamBam.CAD">
+      <HintPath>$(cbpath)\CamBam.CAD.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="CamBam.CAD" Condition="'$(Configuration)' == 'cb098-debug'">
-      <HintPath>D:\winp\app\cambam\CamBam.CAD.dll</HintPath>
+    <Reference Include="CamBam.Geom">
+      <HintPath>$(cbpath)\CamBam.Geom.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="CamBam.Geom" Condition="'$(Configuration)' == 'cb098-debug'">
-      <HintPath>D:\winp\app\cambam\CamBam.Geom.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-
-    <Reference Include="CamBam" Condition="'$(Configuration)' == 'cb10-debug'">
-      <HintPath>D:\winp\app\cambam10\CamBam.exe</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CamBam.CAD" Condition="'$(Configuration)' == 'cb10-debug'">
-      <HintPath>D:\winp\app\cambam10\CamBam.CAD.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CamBam.Geom" Condition="'$(Configuration)' == 'cb10-debug'">
-      <HintPath>D:\winp\app\cambam10\CamBam.Geom.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
