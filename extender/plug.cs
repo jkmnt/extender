@@ -38,11 +38,11 @@ namespace Extender
 
     public class Extender_plugin
     {
-        static Extender extender;
+        static Selector selector;
 
         static void popup_handler(object sender, EventArgs e)
         {
-            extender.run();
+            selector.Run();
         }
 
         static void on_load(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace Extender
             popup.ShortcutKeyDisplayString = "Ctrl+Plus";
             popup.Click += popup_handler;
             ui.Menus.mnuPlugins.DropDownItems.Add(popup);
-            extender = new Extender(CamBamUI.MainUI);
+            selector = new Selector(CamBamUI.MainUI);
 
             ThisApplication.TopWindow.Load += on_load;
         }

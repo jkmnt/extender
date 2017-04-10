@@ -59,6 +59,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="selector.cs" />
+    <Compile Include="trimmer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Extender_icon.png" />
