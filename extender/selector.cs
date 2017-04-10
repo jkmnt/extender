@@ -90,14 +90,18 @@ namespace Extender
             return false;
         }
 
+        private void process_shift(KeyEventArgs e)
+        {
+            if (_is_shift_pressed == e.Shift)
+                return;
+
+            _is_shift_pressed = e.Shift;
+            this._ActiveView.RepaintEditMode();
+        }
+
         public override bool OnKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Shift)
-                _is_shift_pressed = true;
-            else
-                _is_shift_pressed = false;
-
-            this._ActiveView.RepaintEditMode();
+            process_shift(e);
 
             if (e.KeyCode == Keys.Return || e.KeyCode == Keys.Escape)
             {
@@ -109,12 +113,7 @@ namespace Extender
 
         public override bool OnKeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Shift)
-                _is_shift_pressed = true;
-            else
-                _is_shift_pressed = false;
-
-            this._ActiveView.RepaintEditMode();
+            process_shift(e);
 
             return base.OnKeyUp(sender, e);
         }
@@ -187,7 +186,7 @@ namespace Extender
 
             // Replace pick handler for picking extendable object
             _em = new PickObjectEditMode(_ui.ActiveView);
-            _em.Prompt = TextTranslation.Translate("Click object to extend; Shift-Click to trim; press ESC to exit");
+            _em.Prompt = TextTranslation.Translate("Click object to extend (+shift to trim); press ESC to exit");
             _em.OnReturnOK += on_object_pick;
             _ui.ActiveView.SetEditMode(_em, true);
             _ui.ActiveView.RepaintEditMode();
@@ -204,7 +203,7 @@ namespace Extender
                 return;
 
             _em = new EntitySelectEditMode(_ui.ActiveView);
-            _em.Prompt = TextTranslation.Translate("Select boundaries to extend to / trim by, then press Enter or ESC to cancel");
+            _em.Prompt = TextTranslation.Translate("Select boundaries to extend to (or trim by), then press Enter or ESC to cancel");
             _em.OnReturnOK += on_selection_pick;
             _ui.ActiveView.SetEditMode(_em);
             _ui.ActiveView.RepaintEditMode();

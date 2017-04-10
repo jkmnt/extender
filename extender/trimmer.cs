@@ -279,7 +279,7 @@ namespace Extender
 
             // replace original entry inplace if there is a single result.
             // circle is an exception - it would be replaced by polyline
-            if (result.Count == 1 && ! (orig is Circle))
+            if (result.Count == 1 && ! (orig is Circle || orig is PolyRectangle))
             {
                 _ui.UndoBuffer.Add(orig);
 
